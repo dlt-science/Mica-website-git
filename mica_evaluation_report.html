@@ -1,0 +1,3016 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MiCA Whitepaper Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            .summary-box {
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                padding: 20px;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .score-container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .score-box {
+                text-align: center;
+                padding: 15px;
+                border-radius: 5px;
+                flex: 1;
+                margin: 0 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .compliance-score {
+                background-color: #d4edda;
+            }
+            .conformance-score {
+                background-color: #d1ecf1;
+            }
+            .combined-score {
+                background-color: #fff3cd;
+            }
+            .score-value {
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 30px;
+            }
+            th, td {
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .recommendations {
+                background-color: #e2e3e5;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 30px;
+            }
+            .issue-breakdown {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            .issue-item {
+                background-color: #e9ecef;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.9em;
+            }
+            .missing {
+                color: #721c24;
+                background-color: #f8d7da;
+            }
+            .present {
+                color: #155724;
+                background-color: #d4edda;
+            }
+            .deduction {
+                color: #856404;
+                background-color: #fff3cd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MiCA Whitepaper Evaluation Report</h1>
+        
+        <div class="summary-box">
+            <h2>Executive Summary</h2>
+            <div class="score-container">
+                <div class="score-box compliance-score">
+                    <h3>Compliance Score</h3>
+                    <div class="score-value">0.90</div>
+                    <p>171 of 189 indicators present</p>
+                </div>
+                <div class="score-box conformance-score">
+                    <h3>Conformance Score</h3>
+                    <div class="score-value">0.46</div>
+                    <p>16 perfect indicators</p>
+                </div>
+                <div class="score-box combined-score">
+                    <h3>Combined Score</h3>
+                    <div class="score-value">0.68</div>
+                </div>
+            </div>
+            
+            <h3>Key Statistics</h3>
+            <ul>
+                <li>Total indicators evaluated: 189</li>
+                <li>Present indicators: 171 (90.5%)</li>
+                <li>Missing indicators: 18</li>
+                <li>Perfect conformance indicators: 16 (8.5%)</li>
+                <li>Total issues found: 106</li>
+            </ul>
+            
+            <h3>Issue Breakdown</h3>
+            <div class="issue-breakdown">
+    <div class="issue-item">Incomplete data: 97</div><div class="issue-item">Wrong format: 9</div>
+            </div>
+            
+            <h3>Recommendations</h3>
+            <div class="recommendations">
+                <ul>
+    <li>Add 18 missing indicators to improve compliance score</li><li>Fix Incomplete data issues (found in 97 indicators)</li><li>Fix Wrong format issues (found in 9 indicators)</li><li>Focus on improving the quality of existing indicators rather than adding new ones</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>Compliance Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Field</th>
+                    <th>Status</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>A.1</td>
+                    <td>Name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.10</td>
+                    <td>Response time (Days)</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.11</td>
+                    <td>Parent company</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.12</td>
+                    <td>Members of the management body</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.13</td>
+                    <td>Business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.14</td>
+                    <td>Parent company business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.15</td>
+                    <td>Newly established</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.16</td>
+                    <td>Financial condition for the past three years</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.17</td>
+                    <td>Financial condition since registration</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.2</td>
+                    <td>Legal form</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.3</td>
+                    <td>Registered address</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.4</td>
+                    <td>Head office</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.5</td>
+                    <td>Registration date</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.6</td>
+                    <td>Legal entity identifier</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.7</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.8</td>
+                    <td>Contact telephone number</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>A.9</td>
+                    <td>E-mail address</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.1</td>
+                    <td>Issuer different from offeror or person seeking admission to trading</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.10</td>
+                    <td>Members of the management body</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.11</td>
+                    <td>Business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.12</td>
+                    <td>Parent company business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.2</td>
+                    <td>Name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.3</td>
+                    <td>Legal form</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.4</td>
+                    <td>Registered address</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.5</td>
+                    <td>Head office</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.6</td>
+                    <td>Registration date</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.7</td>
+                    <td>Legal entity identifier</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.8</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>B.9</td>
+                    <td>Parent company</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.1</td>
+                    <td>Name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.10</td>
+                    <td>Members of the Management body</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.11</td>
+                    <td>Operator business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.12</td>
+                    <td>Parent company business activity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.13</td>
+                    <td>Other persons drawing up the crypto-asset white paper according to Article 6(1), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.14</td>
+                    <td>Reason for drawing up the white paper by persons referred to in Article 6(1), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.2</td>
+                    <td>Legal form</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.3</td>
+                    <td>Registered address</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.4</td>
+                    <td>Head office</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.5</td>
+                    <td>Registration date</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.6</td>
+                    <td>Legal entity identifier</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.7</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.8</td>
+                    <td>Parent company</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>C.9</td>
+                    <td>Reason for crypto-Asset white paper Preparation</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.1</td>
+                    <td>Crypto-asset project name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.10</td>
+                    <td>Planned use of Collected funds or crypto-assets</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.2</td>
+                    <td>Crypto-assets name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.3</td>
+                    <td>Abbreviation</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.4</td>
+                    <td>Crypto-asset project description</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.5</td>
+                    <td>Details of all natural or legal persons involved in the implementation of the crypto-asset project</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.6</td>
+                    <td>Utility Token Classification</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.7</td>
+                    <td>Key Features of Goods/Services for Utility Token Projects</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.8</td>
+                    <td>Plans for the token</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>D.9</td>
+                    <td>Resource allocation</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.1</td>
+                    <td>Public offering or admission to trading</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.10</td>
+                    <td>Subscription fee</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.11</td>
+                    <td>Offer price determination method</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.12</td>
+                    <td>Total number of offered/traded crypto-assets</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.13</td>
+                    <td>Targeted holders</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.14</td>
+                    <td>Holder restrictions</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.15</td>
+                    <td>Reimbursement notice</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.16</td>
+                    <td>Refund mechanism</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.17</td>
+                    <td>Refund timeline</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.18</td>
+                    <td>Offer phases</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.19</td>
+                    <td>Early purchase discount</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.2</td>
+                    <td>Reasons for public offer or admission to trading</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.20</td>
+                    <td>Time-limited offer</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.21</td>
+                    <td>Subscription period beginning</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.22</td>
+                    <td>Subscription period end</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.23</td>
+                    <td>Safeguarding arrangements for offered funds/crypto-assets</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.24</td>
+                    <td>Payment methods for crypto-asset purchase</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.25</td>
+                    <td>Value transfer methods for reimbursement</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.26</td>
+                    <td>Right of withdrawal</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.27</td>
+                    <td>Transfer of purchased crypto-assets</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.28</td>
+                    <td>Transfer time schedule</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.29</td>
+                    <td>Purchaser’s technical requirements</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.3</td>
+                    <td>Fundraising target</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.30</td>
+                    <td>Crypto-asset service provider (CASP) name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.31</td>
+                    <td>CASP identifier</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.32</td>
+                    <td>Placement form</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.33</td>
+                    <td>Trading platforms name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.34</td>
+                    <td>Trading platforms Market identifier code (MIC)</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.35</td>
+                    <td>Trading platforms access</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.36</td>
+                    <td>Involved costs</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.37</td>
+                    <td>Offer expenses</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.38</td>
+                    <td>Conflicts of interest</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.39</td>
+                    <td>Applicable law</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.4</td>
+                    <td>Minimum subscription goals</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.40</td>
+                    <td>Competent court</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.5</td>
+                    <td>Maximum subscription goals</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.6</td>
+                    <td>Oversubscription acceptance</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.7</td>
+                    <td>Oversubscription allocation</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.8</td>
+                    <td>Issue price</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>E.9</td>
+                    <td>Official currency or any other crypto-assets determining the issue price</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.1</td>
+                    <td>Crypto-asset type</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.10</td>
+                    <td>Publication date</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.11</td>
+                    <td>Any other services provided by the issuer</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.12</td>
+                    <td>Language or languages of the crypto-asset white paper</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.13</td>
+                    <td>Digital token identifier code used to uniquely identify the crypto-asset or each of the several crypto-assets to which the white paper relates, where available</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.14</td>
+                    <td>Functionally fungible group digital token identifier, where available</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.15</td>
+                    <td>Voluntary data flag</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.16</td>
+                    <td>Personal data flag</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.17</td>
+                    <td>LEI eligibility</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.18</td>
+                    <td>Home Member State</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.19</td>
+                    <td>Host Member States</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.2</td>
+                    <td>Crypto-asset functionality</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.3</td>
+                    <td>Planned application of functionalities</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.4</td>
+                    <td>Type of crypto-asset white paper</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.5</td>
+                    <td>The type of submission</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.6</td>
+                    <td>Crypto-asset characteristics</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.7</td>
+                    <td>Commercial name or trading name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.8</td>
+                    <td>Website of the issuer</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>F.9</td>
+                    <td>Starting date of offer to the public or admission to trading</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.1</td>
+                    <td>Purchaser rights and obligations</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.10</td>
+                    <td>Crypto-assets purchase or sale modalities</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.11</td>
+                    <td>Crypto-assets transfer restrictions</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.12</td>
+                    <td>Supply adjustment protocols</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.13</td>
+                    <td>Supply adjustment mechanisms</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.14</td>
+                    <td>Token value protection schemes</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.15</td>
+                    <td>Token value protection schemes description</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.16</td>
+                    <td>Compensation schemes</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.17</td>
+                    <td>Compensation schemes description</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.18</td>
+                    <td>Applicable law</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.19</td>
+                    <td>Competent court</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.2</td>
+                    <td>Exercise of rights and obligations</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.3</td>
+                    <td>Conditions for modifications of rights and obligations</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.4</td>
+                    <td>Future public offers</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.5</td>
+                    <td>Issuer retained crypto-assets</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.6</td>
+                    <td>Utility token classification</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.7</td>
+                    <td>Key features of goods/services of utility tokens</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.8</td>
+                    <td>Utility tokens redemption</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>G.9</td>
+                    <td>Non-trading request</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.1</td>
+                    <td>Distributed ledger technology (DLT)</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.2</td>
+                    <td>Protocols and technical standards</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.3</td>
+                    <td>Technology used</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.4</td>
+                    <td>Consensus mechanism</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.5</td>
+                    <td>Incentive mechanisms and applicable fees</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.6</td>
+                    <td>Use of distributed ledger technology</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.7</td>
+                    <td>DLT functionality description</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.8</td>
+                    <td>Audit</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>H.9</td>
+                    <td>Audit outcome</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.00</td>
+                    <td>Table of contents</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.01</td>
+                    <td>Date of notification</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.02</td>
+                    <td>Statement in accordance with Article 6(3) of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.03</td>
+                    <td>Compliance statement in accordance with Article 6(6) of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.04</td>
+                    <td>Statement in accordance with Article 6(5), points (a), (b), (c), of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.05</td>
+                    <td>Statement in accordance with Article 6(5), point (d), of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.06</td>
+                    <td>Statement in accordance with Article 6(5), points (e) and (f), of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.07</td>
+                    <td>Warning in accordance with Article 6(7), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.08</td>
+                    <td>Characteristics of the crypto-asset</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.09</td>
+                    <td>Quality and quantity of goods/services linked to utility tokens</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.1</td>
+                    <td>Offer-related risks</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.10</td>
+                    <td>Key information about the offer to the public or admission to trading</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.2</td>
+                    <td>Issuer-related risks</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.3</td>
+                    <td>Crypto-assets-related risks</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.4</td>
+                    <td>Project implementation-related risks</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.5</td>
+                    <td>Technology-related risks</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>I.6</td>
+                    <td>Mitigation measures</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>J.1</td>
+                    <td>Adverse impacts on climate and other environment-related adverse impacts</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.1</td>
+                    <td>Name</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.10</td>
+                    <td>Renewable energy consumption</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.11</td>
+                    <td>Energy intensity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.12</td>
+                    <td>Scope 1 DLT GHG emissions – controlled</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.13</td>
+                    <td>Scope 2 DLT GHG emissions – purchased</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.14</td>
+                    <td>GHG intensity</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.15</td>
+                    <td>Key energy course and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.16</td>
+                    <td>Key GHG sources and methodologies</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.17</td>
+                    <td>Energy mix</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.19</td>
+                    <td>Carbon intensity</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.2</td>
+                    <td>Relevant legal entity identifier</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.22</td>
+                    <td>Generation of waste electrical and electronic equipment (WEEE)</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.23</td>
+                    <td>Non-recycled WEEE ratio</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.24</td>
+                    <td>Generation of hazardous waste</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.25</td>
+                    <td>Generation of waste (all types)</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.26</td>
+                    <td>Non-recycled waste ratio (all types)</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.27</td>
+                    <td>Waste intensity (all types)</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.29</td>
+                    <td>Impact of the use of equipment on natural resources</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.3</td>
+                    <td>Name of the crypto-asset</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.31</td>
+                    <td>Water use</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.32</td>
+                    <td>Non-recycled water ratio</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.33</td>
+                    <td>Other energy sources and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.34</td>
+                    <td>Other GHG sources and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.35</td>
+                    <td>Waste sources and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.36</td>
+                    <td>Natural resources sources and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.4</td>
+                    <td>Consensus Mechanism</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.5</td>
+                    <td>Incentive Mechanisms and Applicable Fees</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.6</td>
+                    <td>Beginning of the period to which the disclosure relates</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+                <tr>
+                    <td>S.7</td>
+                    <td>End of the period to which the disclosure relates</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.8</td>
+                    <td>Energy consumption</td>
+                    <td class="present">Present</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>S.9</td>
+                    <td>Energy consumption sources and methodologies</td>
+                    <td class="missing">Missing</td>
+                    <td>0</td>
+                </tr>
+        
+            </tbody>
+        </table>
+        
+        <h2>Conformance Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Field</th>
+                    <th>Score</th>
+                    <th>Deductions</th>
+                    <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>A.1</td>
+                    <td>Name</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>A.10</td>
+                    <td>Response time (Days)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>A.11</td>
+                    <td>Parent company</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.12</td>
+                    <td>Members of the management body</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.13</td>
+                    <td>Business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.14</td>
+                    <td>Parent company business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.15</td>
+                    <td>Newly established</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.16</td>
+                    <td>Financial condition for the past three years</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.17</td>
+                    <td>Financial condition since registration</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.2</td>
+                    <td>Legal form</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.3</td>
+                    <td>Registered address</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.4</td>
+                    <td>Head office</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.5</td>
+                    <td>Registration date</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect date format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.6</td>
+                    <td>Legal entity identifier</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.7</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.8</td>
+                    <td>Contact telephone number</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>A.9</td>
+                    <td>E-mail address</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.1</td>
+                    <td>Issuer different from offeror or person seeking admission to trading</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>B.10</td>
+                    <td>Members of the management body</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 4 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.11</td>
+                    <td>Business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.12</td>
+                    <td>Parent company business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.2</td>
+                    <td>Name</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>B.3</td>
+                    <td>Legal form</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.4</td>
+                    <td>Registered address</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.5</td>
+                    <td>Head office</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.6</td>
+                    <td>Registration date</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect date format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.7</td>
+                    <td>Legal entity identifier</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.8</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>B.9</td>
+                    <td>Parent company</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.1</td>
+                    <td>Name</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>C.10</td>
+                    <td>Members of the Management body</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 5 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.11</td>
+                    <td>Operator business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.12</td>
+                    <td>Parent company business activity</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.13</td>
+                    <td>Other persons drawing up the crypto-asset white paper according to Article 6(1), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>C.14</td>
+                    <td>Reason for drawing up the white paper by persons referred to in Article 6(1), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>C.2</td>
+                    <td>Legal form</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.3</td>
+                    <td>Registered address</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.4</td>
+                    <td>Head office</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.5</td>
+                    <td>Registration date</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect date format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.6</td>
+                    <td>Legal entity identifier</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.7</td>
+                    <td>Another identifier required pursuant to applicable national law</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.8</td>
+                    <td>Parent company</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>C.9</td>
+                    <td>Reason for crypto-Asset white paper Preparation</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.1</td>
+                    <td>Crypto-asset project name</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.10</td>
+                    <td>Planned use of Collected funds or crypto-assets</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.2</td>
+                    <td>Crypto-assets name</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.3</td>
+                    <td>Abbreviation</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>D.4</td>
+                    <td>Crypto-asset project description</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.5</td>
+                    <td>Details of all natural or legal persons involved in the implementation of the crypto-asset project</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>D.6</td>
+                    <td>Utility Token Classification</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.7</td>
+                    <td>Key Features of Goods/Services for Utility Token Projects</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>D.8</td>
+                    <td>Plans for the token</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>D.9</td>
+                    <td>Resource allocation</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.1</td>
+                    <td>Public offering or admission to trading</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.10</td>
+                    <td>Subscription fee</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.11</td>
+                    <td>Offer price determination method</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.12</td>
+                    <td>Total number of offered/traded crypto-assets</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.13</td>
+                    <td>Targeted holders</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.14</td>
+                    <td>Holder restrictions</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.15</td>
+                    <td>Reimbursement notice</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.16</td>
+                    <td>Refund mechanism</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.17</td>
+                    <td>Refund timeline</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.18</td>
+                    <td>Offer phases</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.19</td>
+                    <td>Early purchase discount</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.2</td>
+                    <td>Reasons for public offer or admission to trading</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.20</td>
+                    <td>Time-limited offer</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.21</td>
+                    <td>Subscription period beginning</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect date format; Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.22</td>
+                    <td>Subscription period end</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.23</td>
+                    <td>Safeguarding arrangements for offered funds/crypto-assets</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.24</td>
+                    <td>Payment methods for crypto-asset purchase</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.25</td>
+                    <td>Value transfer methods for reimbursement</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.26</td>
+                    <td>Right of withdrawal</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.27</td>
+                    <td>Transfer of purchased crypto-assets</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.28</td>
+                    <td>Transfer time schedule</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect date format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.29</td>
+                    <td>Purchaser’s technical requirements</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>E.3</td>
+                    <td>Fundraising target</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.30</td>
+                    <td>Crypto-asset service provider (CASP) name</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.31</td>
+                    <td>CASP identifier</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.32</td>
+                    <td>Placement form</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.33</td>
+                    <td>Trading platforms name</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.34</td>
+                    <td>Trading platforms Market identifier code (MIC)</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.35</td>
+                    <td>Trading platforms access</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.36</td>
+                    <td>Involved costs</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.37</td>
+                    <td>Offer expenses</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.38</td>
+                    <td>Conflicts of interest</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.39</td>
+                    <td>Applicable law</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect list format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.4</td>
+                    <td>Minimum subscription goals</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.40</td>
+                    <td>Competent court</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.5</td>
+                    <td>Maximum subscription goals</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>E.6</td>
+                    <td>Oversubscription acceptance</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.7</td>
+                    <td>Oversubscription allocation</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>E.8</td>
+                    <td>Issue price</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>E.9</td>
+                    <td>Official currency or any other crypto-assets determining the issue price</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect currency format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.1</td>
+                    <td>Crypto-asset type</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.10</td>
+                    <td>Publication date</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.11</td>
+                    <td>Any other services provided by the issuer</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.12</td>
+                    <td>Language or languages of the crypto-asset white paper</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>F.13</td>
+                    <td>Digital token identifier code used to uniquely identify the crypto-asset or each of the several crypto-assets to which the white paper relates, where available</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>F.14</td>
+                    <td>Functionally fungible group digital token identifier, where available</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.15</td>
+                    <td>Voluntary data flag</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.16</td>
+                    <td>Personal data flag</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.17</td>
+                    <td>LEI eligibility</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.18</td>
+                    <td>Home Member State</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect list format; Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.19</td>
+                    <td>Host Member States</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.2</td>
+                    <td>Crypto-asset functionality</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.3</td>
+                    <td>Planned application of functionalities</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.4</td>
+                    <td>Type of crypto-asset white paper</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>F.5</td>
+                    <td>The type of submission</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>F.6</td>
+                    <td>Crypto-asset characteristics</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.7</td>
+                    <td>Commercial name or trading name</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.8</td>
+                    <td>Website of the issuer</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>F.9</td>
+                    <td>Starting date of offer to the public or admission to trading</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.1</td>
+                    <td>Purchaser rights and obligations</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.10</td>
+                    <td>Crypto-assets purchase or sale modalities</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.11</td>
+                    <td>Crypto-assets transfer restrictions</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.12</td>
+                    <td>Supply adjustment protocols</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.13</td>
+                    <td>Supply adjustment mechanisms</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.14</td>
+                    <td>Token value protection schemes</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.15</td>
+                    <td>Token value protection schemes description</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.16</td>
+                    <td>Compensation schemes</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.17</td>
+                    <td>Compensation schemes description</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.18</td>
+                    <td>Applicable law</td>
+                    <td>0.5</td>
+                    <td class="deduction">Wrong format, Incomplete data</td>
+                    <td>Wrong format: Missing or incorrect list format; Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.19</td>
+                    <td>Competent court</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.2</td>
+                    <td>Exercise of rights and obligations</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>G.3</td>
+                    <td>Conditions for modifications of rights and obligations</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.4</td>
+                    <td>Future public offers</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.5</td>
+                    <td>Issuer retained crypto-assets</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.6</td>
+                    <td>Utility token classification</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>G.7</td>
+                    <td>Key features of goods/services of utility tokens</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.8</td>
+                    <td>Utility tokens redemption</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>G.9</td>
+                    <td>Non-trading request</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>H.1</td>
+                    <td>Distributed ledger technology (DLT)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>H.2</td>
+                    <td>Protocols and technical standards</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>H.3</td>
+                    <td>Technology used</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>H.4</td>
+                    <td>Consensus mechanism</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>H.5</td>
+                    <td>Incentive mechanisms and applicable fees</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>H.6</td>
+                    <td>Use of distributed ledger technology</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>H.7</td>
+                    <td>DLT functionality description</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>H.8</td>
+                    <td>Audit</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>H.9</td>
+                    <td>Audit outcome</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 2 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>I.00</td>
+                    <td>Table of contents</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.01</td>
+                    <td>Date of notification</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.02</td>
+                    <td>Statement in accordance with Article 6(3) of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.03</td>
+                    <td>Compliance statement in accordance with Article 6(6) of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.04</td>
+                    <td>Statement in accordance with Article 6(5), points (a), (b), (c), of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.05</td>
+                    <td>Statement in accordance with Article 6(5), point (d), of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.06</td>
+                    <td>Statement in accordance with Article 6(5), points (e) and (f), of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.07</td>
+                    <td>Warning in accordance with Article 6(7), second subparagraph, of Regulation (EU) 2023/1114</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.08</td>
+                    <td>Characteristics of the crypto-asset</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 3 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>I.09</td>
+                    <td>Quality and quantity of goods/services linked to utility tokens</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Content could not be extracted for evaluation</td>
+                </tr>
+        
+                <tr>
+                    <td>I.1</td>
+                    <td>Offer-related risks</td>
+                    <td>0.75</td>
+                    <td class="deduction">Incomplete data</td>
+                    <td>Incomplete data: Incomplete data: Missing 1 required elements</td>
+                </tr>
+        
+                <tr>
+                    <td>I.10</td>
+                    <td>Key information about the offer to the public or admission to trading</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.2</td>
+                    <td>Issuer-related risks</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.3</td>
+                    <td>Crypto-assets-related risks</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.4</td>
+                    <td>Project implementation-related risks</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.5</td>
+                    <td>Technology-related risks</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>I.6</td>
+                    <td>Mitigation measures</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>J.1</td>
+                    <td>Adverse impacts on climate and other environment-related adverse impacts</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Answer does not address the question (insufficient relevant terms)</td>
+                </tr>
+        
+                <tr>
+                    <td>S.1</td>
+                    <td>Name</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.10</td>
+                    <td>Renewable energy consumption</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.11</td>
+                    <td>Energy intensity</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.12</td>
+                    <td>Scope 1 DLT GHG emissions – controlled</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.13</td>
+                    <td>Scope 2 DLT GHG emissions – purchased</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.14</td>
+                    <td>GHG intensity</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.15</td>
+                    <td>Key energy course and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.16</td>
+                    <td>Key GHG sources and methodologies</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.17</td>
+                    <td>Energy mix</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.19</td>
+                    <td>Carbon intensity</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.2</td>
+                    <td>Relevant legal entity identifier</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.22</td>
+                    <td>Generation of waste electrical and electronic equipment (WEEE)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.23</td>
+                    <td>Non-recycled WEEE ratio</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.24</td>
+                    <td>Generation of hazardous waste</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.25</td>
+                    <td>Generation of waste (all types)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.26</td>
+                    <td>Non-recycled waste ratio (all types)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.27</td>
+                    <td>Waste intensity (all types)</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.29</td>
+                    <td>Impact of the use of equipment on natural resources</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.3</td>
+                    <td>Name of the crypto-asset</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.31</td>
+                    <td>Water use</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.32</td>
+                    <td>Non-recycled water ratio</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.33</td>
+                    <td>Other energy sources and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.34</td>
+                    <td>Other GHG sources and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.35</td>
+                    <td>Waste sources and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.36</td>
+                    <td>Natural resources sources and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.4</td>
+                    <td>Consensus Mechanism</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.5</td>
+                    <td>Incentive Mechanisms and Applicable Fees</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.6</td>
+                    <td>Beginning of the period to which the disclosure relates</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+                <tr>
+                    <td>S.7</td>
+                    <td>End of the period to which the disclosure relates</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.8</td>
+                    <td>Energy consumption</td>
+                    <td>1.0</td>
+                    <td class="deduction"></td>
+                    <td>No issues found</td>
+                </tr>
+        
+                <tr>
+                    <td>S.9</td>
+                    <td>Energy consumption sources and methodologies</td>
+                    <td>0</td>
+                    <td class="deduction"></td>
+                    <td>Indicator is missing from whitepaper</td>
+                </tr>
+        
+            </tbody>
+        </table>
+        
+        <footer>
+            <p>Generated on: <script>document.write(new Date().toLocaleString());</script></p>
+        </footer>
+    </body>
+    </html>
+    
