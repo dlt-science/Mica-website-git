@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESMA MiCA Register Viewer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #003399; /* ESMA Blue */
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .status.loading { background-color: #eef7ff; border-left: 5px solid #60a5fa; }
+        .status.success { background-color: #e6f4ea; border-left: 5px solid #34d399; }
+        .status.info { background-color: #fefce8; border-left: 5px solid #facc15; }
+        .status.error { background-color: #fee2e2; border-left: 5px solid #f87171; }
+        .register-buttons button {
+            background-color: #0055c7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+        }
+        .register-buttons button:hover, .register-buttons button.active {
+            background-color: #003399;
+        }
+        .table-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: auto;
+            max-height: 65vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            white-space: nowrap;
+        }
+        thead th {
+            background-color: #f1f3f5;
+            font-weight: 600;
+            color: #343a40;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-bottom: 2px solid #ced4da;
+        }
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tbody tr:hover {
+            background-color: #e9ecef;
+        }
+        td {
+            border-left: 1px solid #eee;
+        }
+        td:first-child {
+            border-left: none;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ESMA Interim MiCA Register Viewer</h1>
+        
+        <div id="status-area" class="status loading">
+            <p id="status-message">Initializing and checking for updates...</p>
+        </div>
+
+        <div class="register-buttons" id="register-buttons"></div>
+
+        <div id="csv-viewer">
+            <p>Select a register above to view its contents.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>This viewer is not affiliated with ESMA. Data is fetched live from the official ESMA website. Done by Nuno Lima da Luz.</p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const ESMA_PAGE_URL = 'https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica#InterimMiCARegister';
+        const ESMA_BASE_URL = 'https://www.esma.europa.eu';
+        const PROXY_URL = (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        const REGISTERS_CONFIG = [
+            { id: 'whitepapers', name: 'White papers (non-ART/EMT)', searchText: 'White papers for crypto-assets other than ART and EMT' },
+            { id: 'art_issuers', name: 'Issuers of ART', searchText: 'Issuers of ART' },
+            { id: 'emt_issuers', name: 'Issuers of EMT', searchText: 'Issuers of EMT' },
+            { id: 'casps', name: 'Crypto-asset service providers', searchText: 'Crypto-asset service providers' },
+            { id: 'non_compliant', name: 'Non-compliant entities', searchText: 'Non-compliant entities' }
+        ];
+
+        const statusArea = document.getElementById('status-area');
+        const statusMessage = document.getElementById('status-message');
+        const buttonContainer = document.getElementById('register-buttons');
+        const csvViewer = document.getElementById('csv-viewer');
+
+        async function initializeViewer() {
+            try {
+                const response = await fetch(PROXY_URL(ESMA_PAGE_URL));
+                if (!response.ok) throw new Error(`Failed to fetch ESMA page. Status: ${response.status}`);
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+                checkForUpdates(doc);
+                generateRegisterButtons(doc);
+            } catch (error) {
+                console.error('Initialization failed:', error);
+                updateStatus(`Error: ${error.message}. Could not load data. The proxy or ESMA site may be down.`, 'error');
+            }
+        }
+        
+        function checkForUpdates(doc) {
+            const updateElement = Array.from(doc.querySelectorAll('p, div.field--name-field-esma-last-update')).find(p => p.textContent.includes('Last update:'));
+            if (!updateElement) {
+                updateStatus('Could not find the "Last update" date on the page.', 'info');
+                return;
+            }
+            const newUpdateDate = updateElement.textContent.trim();
+            const lastKnownDate = localStorage.getItem('esmaLastUpdateDate');
+            if (newUpdateDate !== lastKnownDate) {
+                updateStatus(`New data found! Page last updated on: ${newUpdateDate.replace('Last update:', '').trim()}`, 'success');
+                localStorage.setItem('esmaLastUpdateDate', newUpdateDate);
+            } else {
+                updateStatus(`Data is up-to-date. Last checked: ${new Date().toLocaleString()}`, 'info');
+            }
+        }
+        
+        function generateRegisterButtons(doc) {
+            buttonContainer.innerHTML = '';
+            REGISTERS_CONFIG.forEach(config => {
+                const targetLink = Array.from(doc.querySelectorAll('a')).find(a => a.textContent.trim().includes(config.searchText));
+                if (targetLink && targetLink.hasAttribute('href')) {
+                    let href = targetLink.getAttribute('href');
+                    let fullUrl = href.startsWith('/') ? `${ESMA_BASE_URL}${href}` : href;
+                    const button = document.createElement('button');
+                    button.textContent = config.name;
+                    button.dataset.csvUrl = fullUrl;
+                    button.onclick = (e) => handleButtonClick(e, button);
+                    buttonContainer.appendChild(button);
+                } else {
+                    console.warn(`Could not find link for: ${config.name}`);
+                }
+            });
+        }
+        
+        async function handleButtonClick(event, button) {
+            document.querySelectorAll('.register-buttons button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const csvUrl = button.dataset.csvUrl;
+            csvViewer.innerHTML = `<p class="status loading">Loading data for "${button.textContent}"...</p>`;
+            try {
+                const response = await fetch(PROXY_URL(csvUrl));
+                if (!response.ok) throw new Error(`Failed to fetch CSV file. Status: ${response.status}`);
+                const csvText = await response.text();
+
+                if (!csvText || !csvText.trim()) {
+                    csvViewer.innerHTML = `<p class="status info">The selected register is currently empty.</p>`;
+                    return;
+                }
+                
+                // *** THE FIX: Use a comma (,) as the delimiter ***
+                const data = parseCSV(csvText, ',');
+
+                if (data && data.length > 0 && data[0].length > 1) {
+                    renderTable(data);
+                } else {
+                     throw new Error("CSV parser did not return a valid table structure. The file might be malformed.");
+                }
+            } catch (error) {
+                console.error('Failed to display CSV:', error);
+                csvViewer.innerHTML = `<p class="status error">${error.message}</p>`;
+            }
+        }
+        
+        function parseCSV(text, delimiter) {
+            const pattern = new RegExp(
+                `(\\${delimiter}|\\r?\\n|\\r|^)(?:"([^"]*(?:""[^"]*)*)"|([^"\\${delimiter}\\r\\n]*))`, 'gi'
+            );
+            const result = [[]];
+            let matches;
+            while (matches = pattern.exec(text)) {
+                const matchedDelimiter = matches[1];
+                if (matchedDelimiter.length && matchedDelimiter !== delimiter) {
+                    result.push([]);
+                }
+                let value;
+                if (matches[2]) {
+                    value = matches[2].replace(/""/g, '"');
+                } else {
+                    value = matches[3];
+                }
+                result[result.length - 1].push(value);
+            }
+            // Final cleanup
+            if (result.length > 0 && result[result.length - 1].every(v => v === '')) result.pop();
+            if (result.length > 0 && result[0].every(v => v === '')) result.shift();
+            return result;
+        }
+        
+        function renderTable(data) {
+            const tableContainer = document.createElement('div');
+            tableContainer.className = 'table-container';
+            const table = document.createElement('table');
+
+            const headers = data[0] || [];
+            const rows = data.length > 1 ? data.slice(1) : [];
+
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            headers.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            
+            const tbody = document.createElement('tbody');
+            rows.forEach(rowData => {
+                if (rowData.every(cell => cell === '')) return;
+                const row = document.createElement('tr');
+                for (let i = 0; i < headers.length; i++) {
+                    const cellData = rowData[i] || '';
+                    const td = document.createElement('td');
+                    td.textContent = cellData;
+                    row.appendChild(td);
+                }
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+            tableContainer.appendChild(table);
+            
+            csvViewer.innerHTML = '';
+            csvViewer.appendChild(tableContainer);
+        }
+
+        function updateStatus(message, type = 'loading') {
+            statusMessage.textContent = message;
+            statusArea.className = `status ${type}`;
+        }
+
+        initializeViewer();
+    });
+    </script>
+</body>
+</html>
